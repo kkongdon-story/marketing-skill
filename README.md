@@ -15,6 +15,15 @@
 
 ## 쓰는 법
 
+Claude Code 안에서 아래 두 줄을 차례로 입력해 설치합니다.
+
+```
+/plugin marketplace add kkongdon-story/marketing-skill
+/plugin install book-launch@marketing-skill
+```
+
+저장소를 내려받아 바로 써 보려면 설치하지 않고 이렇게 열 수도 있습니다.
+
 ```
 claude --plugin-dir /path/to/marketing-skill
 ```
