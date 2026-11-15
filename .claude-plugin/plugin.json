@@ -1,0 +1,6 @@
+{
+  "name": "book-launch",
+  "version": "0.1.0",
+  "description": "책 출간 마케팅 계획을 병렬 에이전트로 만든다. 첫 책 저자와 판매 기록이 있는 저자를 구분하고, 쉬운 말로 된 계획 문서를 낸다.",
+  "keywords": ["book", "publishing", "marketing", "launch", "출간", "책 마케팅"]
+}

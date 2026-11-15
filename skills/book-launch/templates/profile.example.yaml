@@ -1,0 +1,84 @@
+# 내 책 정보 (예시)
+# 보통은 스킬이 대화로 물어서 대신 채운다. 직접 고쳐도 된다.
+# 모르는 값은 비워 두면 기본값(추측)으로 계산한다.
+
+track: first_book          # first_book(첫 책, 판매 기록 없음) | has_record(판매 기록 있음)
+term_level: plain          # plain(쉬운 말만) | with_original(원래 용어를 괄호로 한 번). 보통 첫 책은 plain
+
+book_info:
+  title: "퇴근 후 한 시간"
+  author: "홍길동"
+  publish_date: "2027-03-15"
+  date_flexible: false      # 출간일을 바꿀 수 있는가
+  publish_type: publisher   # publisher(출판사 계약) | self(직접 출판) | ebook_only(전자책만)
+  publisher: ""
+  price: 17000
+  genre: "자기계발"
+  core_message: "퇴근 후 한 시간을 정해 두면 1년 안에 두 번째 직업이 생긴다"
+  first_print_run: 2000     # 처음 찍는 부수. 첫 책 갈래의 기본 목표가 된다
+  outline: |
+    (목차나 책 소개를 붙여 넣는다. 여기서 메시지, 따라 할 행동, 인증할 행동을 뽑는다.)
+
+channels:                   # 운영하는 채널만 적는다. 없으면 [] 로 둔다
+  - name: 스레드
+    followers: 3000         # 블로그는 하루 방문자, 단톡방·뉴스레터는 인원
+    avg_views:              # 최근 게시물 10개의 평균 조회수. 넣으면 "확실"한 값으로 계산한다
+  - name: 블로그
+    followers: 500
+    avg_views:
+
+resources:
+  daily_hours: 1            # 출간 준비에 하루에 쓸 수 있는 시간
+  ad_budget: 0              # 홍보에 쓸 돈 (원)
+  helpers: "혼자"
+  influencer_count: 0       # 책을 미리 읽고 추천해 줄 사람 수
+  bookstore_relations:      # 서점 담당자와 이야기할 길
+  offline_events_available: # 직접 만나는 행사 가능 여부
+  ai_content_available:     # 글·영상을 만드는 도구
+
+funnel_structure:
+  funnel_path:              # 책 다음에 권할 상품. 예: "책 → 온라인 모임 3만 원"
+
+special_circumstances:
+  competing_books:          # 같은 주에 나오는 큰 책
+  anti_risk:                # 걱정되는 비판
+  season_connection:        # 시기와 맞는 화제
+
+notes: |
+  (그 밖의 계획. 추천인 명단, 인증 해시태그, 보도자료 계획 등)
+
+# ---- 판매 기록 (has_record 갈래만) -------------------------------------
+record:
+  prev_first_week_sales:    # 전작 출간 첫 주 판매 (권)
+  prev_total_sales:         # 전작 누적 판매 (권)
+  prev_followers_total:     # 그때 팔로워 합계
+  past_ad:
+    spend:                  # 전에 광고에 쓴 돈 (원)
+    sales:                  # 그 광고로 팔린 권수
+
+# ---- 출간 전에 잰 값. 넣으면 예상이 정확해진다 -------------------------
+experiment:
+  signup_count:             # 출간 알림 신청 수
+  preorder_copies:          # 예약 판매 부수
+
+# ---- 비슷한 책 조사 결과. 스킬이 채운다. 대조에만 쓰고 기준으로 삼지 않는다 ----
+reference:
+  comparables: []           # 예: [{title: "책 제목", copies: 5000, weeks: 4}]. 3권 이상일 때만 계산에 쓴다
+
+# ---- 출간 뒤 실제 판매. 주마다 이어 적는다 -----------------------------
+actuals:
+  weekly_sales: []          # 예: [320, 270, 250]
+  followers_at_launch:      # 출간 때 팔로워 합계. 다음 책의 record 로 옮길 때 쓴다
+
+# ---- 내 환경에 맞게 바꿀 수 있는 값. 비워 두면 기본값 ------------------
+targets:
+  goal_copies:              # 목표 판매량 (권). 기본: 첫 책은 1쇄 부수, 실적 있음은 전작 첫 주 판매(없으면 3500)
+  goal_weeks:               # 목표 기간 (주). 기본: 첫 책 12, 실적 있음 1
+  activation_rate:          # 팔로워 중 실제로 보는 비율. 기본 0.15
+  conversion_rate:          # 본 사람 중 사는 비율 [낮음, 기준, 높음]. 기본 [0.01, 0.02, 0.03]
+  weekly_flow:              # 다음 주 판매 ÷ 이번 주 판매 [낮음, 기준, 높음]. 기본 [0.7, 0.85, 1.0]
+  signup_conversion:        # 알림 신청자 중 사는 비율. 기본 [0.1, 0.2, 0.4]
+  warning_ratio:            # 목표의 이 비율 미만이면 "어려움". 기본 0.6
+  overlap_discount:         # 여러 채널을 같이 보는 사람 할인. 기본 0
+  time_use_ratio:           # 말한 하루 가능 시간 중 계획에 쓰는 비율. 기본 0.85 (15%는 여유)
+  ad_cost_per_sale:         # 광고로 1권 파는 데 드는 돈 (원). 모르면 광고 효과는 계산에서 뺀다
